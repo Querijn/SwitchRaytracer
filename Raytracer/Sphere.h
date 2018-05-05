@@ -2,11 +2,11 @@
 
 #include "Primitive.h"
 
-struct Ray;
+class Ray;
 class Sphere : public Primitive
 {
 public:
-	Sphere(const glm::vec3& a_Position, float a_Radius);
+	Sphere(const glm::vec3& a_Position, const BaseMaterial* a_Material, float a_Radius);
 
 	float Intersects(const Ray& a_Ray) const;
 

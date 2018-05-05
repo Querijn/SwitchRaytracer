@@ -26,6 +26,12 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>Raytracing\Sphere</Filter>
     </ClCompile>
+    <ClCompile Include="BaseMaterial.cpp">
+      <Filter>Raytracing\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="ColourMaterial.cpp">
+      <Filter>Raytracing\Material\ColourMaterial</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Surface">
@@ -58,6 +64,12 @@
     <Filter Include="Raytracing\Sphere">
       <UniqueIdentifier>{f5b4a6ae-7425-480f-9195-7590737d6b4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Raytracing\Material">
+      <UniqueIdentifier>{2724ac99-3c65-40f2-81d4-68376addcf08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing\Material\ColourMaterial">
+      <UniqueIdentifier>{c9b43597-2895-4c64-a6b8-e4aab96c1b3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Surface.h">
@@ -83,6 +95,12 @@
     </ClInclude>
     <ClInclude Include="Sphere.h">
       <Filter>Raytracing\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMaterial.h">
+      <Filter>Raytracing\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="ColourMaterial.h">
+      <Filter>Raytracing\Material\ColourMaterial</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

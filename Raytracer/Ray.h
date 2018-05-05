@@ -2,8 +2,9 @@
 
 #include <glm/glm.hpp>
 
-struct Ray
+class Ray
 {
+public:
 	glm::vec3 Origin;
 	glm::vec3 Direction;
 };
