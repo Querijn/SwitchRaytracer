@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Surface.cpp">
+      <Filter>Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="WinFrameBuffer.cpp">
+      <Filter>FrameBuffer\WinFrameBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>FrameBuffer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Surface">
+      <UniqueIdentifier>{6511e424-b22b-4888-b65e-fd60145b0964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameBuffer">
+      <UniqueIdentifier>{453ed2e4-e8bf-476b-82ab-7ec19ac8f4eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameBuffer\WinFrameBuffer">
+      <UniqueIdentifier>{44bc1a05-35c0-4459-8a76-601b38585a41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameBuffer\SwitchFrameBuffer">
+      <UniqueIdentifier>{82406e4d-8497-4d9e-b044-d01355bf66c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Font">
+      <UniqueIdentifier>{5fef2d45-7fcb-4df8-b9f5-fbe0aa7f896d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Surface.h">
+      <Filter>Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="WinFrameBuffer.h">
+      <Filter>FrameBuffer\WinFrameBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>FrameBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
