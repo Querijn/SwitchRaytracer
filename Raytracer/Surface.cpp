@@ -7,7 +7,6 @@ Surface::Surface()
 {
 }
 
-
 Surface::~Surface()
 {
 	delete m_ImageData;

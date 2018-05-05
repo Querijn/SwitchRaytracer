@@ -14,6 +14,18 @@
     <ClCompile Include="FrameBuffer.cpp">
       <Filter>FrameBuffer</Filter>
     </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Raytracing\Ray</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Raytracing\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive.cpp">
+      <Filter>Raytracing\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Raytracing\Sphere</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Surface">
@@ -31,6 +43,21 @@
     <Filter Include="Font">
       <UniqueIdentifier>{5fef2d45-7fcb-4df8-b9f5-fbe0aa7f896d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Raytracing">
+      <UniqueIdentifier>{2ede036c-b2b3-40c0-b78b-075a8db201f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing\Ray">
+      <UniqueIdentifier>{5e276da1-f7bb-4344-8c0d-10aa3823db8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing\Scene">
+      <UniqueIdentifier>{ae950528-98cc-4989-8761-6faed0272389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing\Primitive">
+      <UniqueIdentifier>{b775f6e5-53bc-4f14-861d-0ce4f11c454c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing\Sphere">
+      <UniqueIdentifier>{f5b4a6ae-7425-480f-9195-7590737d6b4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Surface.h">
@@ -44,6 +71,18 @@
     </ClInclude>
     <ClInclude Include="Font.h">
       <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Raytracing\Ray</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Raytracing\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Raytracing\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Raytracing\Sphere</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
