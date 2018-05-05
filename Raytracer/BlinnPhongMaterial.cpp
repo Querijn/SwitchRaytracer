@@ -29,7 +29,7 @@ glm::vec3 BlinnPhongMaterial::GetColour(const Ray& a_Ray, const Primitive* a_Pri
 	glm::vec3 t_Diffuse = m_Colour * max(dot(t_LightDir, t_Normal), 0.0f);
 
 	glm::vec3 t_LightBounce = glm::reflect(-t_LightDir, t_Normal);
-	float spec = pow(max(dot(t_RayDir, t_LightBounce), 0.0), m_SpecularHardness) * m_SpecularStrength;
+	float t_Specular = pow(max(dot(t_RayDir, t_LightBounce), 0.0), m_SpecularHardness) * m_SpecularStrength;
 
-	return glm::vec3(t_Ambient + t_Diffuse + spec);
+	return glm::vec3(t_Ambient + t_Diffuse + t_Specular);
 }
