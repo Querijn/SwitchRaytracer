@@ -66,7 +66,7 @@ void WinFrameBuffer::OutputToScreen()
 
 	double t_DesiredDelta = 1000.0 / 60.0;
 	double t_SleepTime = (m_DeltaTime < t_DesiredDelta) ? t_DesiredDelta - m_DeltaTime : 0.0;
-	std::this_thread::sleep_for(std::chrono::milliseconds((uint32_t)t_SleepTime));
+	//std::this_thread::sleep_for(std::chrono::milliseconds((uint32_t)t_SleepTime));
 }
 
 bool WinFrameBuffer::ShouldShutdown() const
