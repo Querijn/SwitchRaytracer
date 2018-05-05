@@ -50,16 +50,17 @@ void Scene::Render(Surface& a_Surface) const
 			float t_Aspect = (float)t_Width / (float)t_Height;
 			float t_X = (2.0f * ((x + 0.5f) / t_Width) - 1.0f) * tanf(fov / 2.0f *pi / 180.0f) * t_Aspect;
 			float t_Y = (1.0f - 2.0f * ((y + 0.5f) / t_Height)) * tanf(fov / 2.0f * pi / 180.0f);
-
+			
 			t_Ray.Direction = glm::normalize(glm::vec3(t_X, t_Y, 1));
 
 			glm::vec3 t_Colour;
 			if (!Trace(t_Ray, t_Colour)) continue;
 
 			auto* t_Point = a_Surface.GetPoint(x, y);
-			t_Point[0] = (uint8_t)(0xFF * glm::clamp(t_Colour.r, 0.0f, 1.0f));
-			t_Point[1] = (uint8_t)(0xFF * glm::clamp(t_Colour.g, 0.0f, 1.0f));
-			t_Point[2] = (uint8_t)(0xFF * glm::clamp(t_Colour.b, 0.0f, 1.0f));
+
+			t_Point[0] = (uint8_t)(255.0f * glm::clamp(t_Colour.r, 0.0f, 1.0f));
+			t_Point[1] = (uint8_t)(255.0f * glm::clamp(t_Colour.g, 0.0f, 1.0f));
+			t_Point[2] = (uint8_t)(255.0f * glm::clamp(t_Colour.b, 0.0f, 1.0f));
 		}
 	}
 }

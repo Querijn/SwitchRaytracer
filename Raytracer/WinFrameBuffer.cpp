@@ -1,4 +1,5 @@
 #include "WinFrameBuffer.h"
+#if defined(_WIN32)
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
@@ -84,3 +85,4 @@ double WinFrameBuffer::GetDeltaTime() const
 {
 	return m_DeltaTime;
 }
+#endif
