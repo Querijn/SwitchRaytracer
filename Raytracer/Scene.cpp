@@ -14,17 +14,23 @@ Scene::~Scene()
 
 void Scene::Render(Surface& a_Surface) const
 {
-	size_t t_Width = SCREEN_WIDTH;
-	size_t t_Height = SCREEN_HEIGHT;
+	float t_Width = SCREEN_WIDTH;
+	float t_Height = SCREEN_HEIGHT;
+	float fov = 60;
+	float pi = 3.14159265359f;
 
 	Ray t_Ray;
 	t_Ray.Origin = glm::vec3(0);
 
-	for (int y = -(int)(t_Height * 0.5); y <(int)(t_Height * 0.5); y++)
+	for (size_t y = 0; y < t_Height; y++)
 	{
-		for (int x = -(int)(t_Width * 0.5); x <(int)(t_Width * 0.5); x++)
+		for (size_t x = 0; x < t_Width; x++)
 		{
-			t_Ray.Direction = glm::normalize(glm::vec3((float)x, (float)y, 10)); // TODO: Improve lol
+			float t_Aspect = (float)t_Width / (float)t_Height;
+			float t_X = (2.0f * ((x + 0.5f) / t_Width) - 1.0f) * tanf(fov / 2.0f *pi / 180.0f) * t_Aspect;
+			float t_Y = (1.0f - 2.0f * ((y + 0.5f) / t_Height)) * tanf(fov / 2.0f * pi / 180.0f);
+
+			t_Ray.Direction = glm::normalize(glm::vec3(t_X, t_Y, 1));
 
 			// TODO: Octree?
 			for (auto t_Primitive : m_Primitives)
@@ -33,10 +39,10 @@ void Scene::Render(Surface& a_Surface) const
 				if (t_Distance > 0.0f)
 				{
 					auto t_Colour = t_Primitive->GetMaterial()->GetColour(t_Ray, t_Distance);
-					auto* t_Point = a_Surface.GetPoint(x + (int)(t_Width * 0.5), y + (int)(t_Height * 0.5));
-					t_Point[0] = 0xFF * glm::clamp(t_Colour.r, 0.0f, 1.0f);
-					t_Point[1] = 0xFF * glm::clamp(t_Colour.g, 0.0f, 1.0f);
-					t_Point[2] = 0xFF * glm::clamp(t_Colour.b, 0.0f, 1.0f);
+					auto* t_Point = a_Surface.GetPoint(x, y);
+					t_Point[0] = (uint8_t)(0xFF * glm::clamp(t_Colour.r, 0.0f, 1.0f));
+					t_Point[1] = (uint8_t)(0xFF * glm::clamp(t_Colour.g, 0.0f, 1.0f));
+					t_Point[2] = (uint8_t)(0xFF * glm::clamp(t_Colour.b, 0.0f, 1.0f));
 				}
 			}
 		}
