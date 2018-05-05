@@ -22,7 +22,10 @@ public:
 		return *t_AddedObject;
 	}
 
+	bool Trace(const Ray& a_Ray, glm::vec3& a_Colour, size_t a_Depth = 0) const;
 	void Render(Surface& a_Surface) const;
+
+	std::vector<Primitive*> GetPrimitives() const;
 
 private:
 	std::vector<Primitive*> m_Primitives;

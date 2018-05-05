@@ -12,6 +12,27 @@ Scene::~Scene()
 
 }
 
+bool Scene::Trace(const Ray& a_Ray, glm::vec3& a_Colour, size_t a_Depth) const
+{
+	// TODO: Octree?
+	Primitive* t_HitPrimitive = nullptr;
+	float t_LowestDistance = 9e9f;
+
+	for (Primitive* t_Primitive : m_Primitives)
+	{
+		float t_Distance = t_Primitive->Intersects(a_Ray);
+		if (t_Distance <= 0.0f || t_Distance > t_LowestDistance) continue;
+
+		t_HitPrimitive = t_Primitive;
+		t_LowestDistance = t_Distance;
+	}
+
+	if (t_HitPrimitive == nullptr) return false;
+
+	a_Colour = t_HitPrimitive->GetMaterial()->GetColour(a_Ray, *this, t_HitPrimitive, t_LowestDistance, a_Depth);
+	return true;
+}
+
 void Scene::Render(Surface& a_Surface) const
 {
 	float t_Width = SCREEN_WIDTH;
@@ -32,26 +53,18 @@ void Scene::Render(Surface& a_Surface) const
 
 			t_Ray.Direction = glm::normalize(glm::vec3(t_X, t_Y, 1));
 
-			// TODO: Octree?
-			Primitive* t_HitPrimitive = nullptr;
-			float t_LowestDistance = 9e9f;
+			glm::vec3 t_Colour;
+			if (!Trace(t_Ray, t_Colour)) continue;
 
-			for (Primitive* t_Primitive : m_Primitives)
-			{
-				float t_Distance = t_Primitive->Intersects(t_Ray);
-				if (t_Distance <= 0.0f || t_Distance > t_LowestDistance) continue;
-
-				t_HitPrimitive = t_Primitive;
-				t_LowestDistance = t_Distance;
-			}
-
-			if (t_HitPrimitive == nullptr) continue;
-
-			auto t_Colour = t_HitPrimitive->GetMaterial()->GetColour(t_Ray, t_HitPrimitive, t_LowestDistance);
 			auto* t_Point = a_Surface.GetPoint(x, y);
 			t_Point[0] = (uint8_t)(0xFF * glm::clamp(t_Colour.r, 0.0f, 1.0f));
 			t_Point[1] = (uint8_t)(0xFF * glm::clamp(t_Colour.g, 0.0f, 1.0f));
 			t_Point[2] = (uint8_t)(0xFF * glm::clamp(t_Colour.b, 0.0f, 1.0f));
 		}
 	}
+}
+
+std::vector<Primitive*> Scene::GetPrimitives() const
+{
+	return m_Primitives;
 }
