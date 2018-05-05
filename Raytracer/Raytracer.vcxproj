@@ -163,6 +163,7 @@
     <ClCompile Include="BlinnPhongMaterial.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="ReflectingMaterial.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Surface.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="BlinnPhongMaterial.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="ReflectingMaterial.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Surface.h" />

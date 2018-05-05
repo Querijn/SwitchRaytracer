@@ -35,6 +35,7 @@
     <ClCompile Include="BlinnPhongMaterial.cpp">
       <Filter>Raytracing\Material\BlinnPhongMaterial</Filter>
     </ClCompile>
+    <ClCompile Include="ReflectingMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Surface">
@@ -76,6 +77,9 @@
     <Filter Include="Raytracing\Material\BlinnPhongMaterial">
       <UniqueIdentifier>{871ce990-8088-4252-ae20-c654c83275da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Raytracing\Material\ReflectingMaterial">
+      <UniqueIdentifier>{8fcbdcc1-26c2-47c0-b6ba-3a3fbb9fc6eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Surface.h">
@@ -111,5 +115,6 @@
     <ClInclude Include="BlinnPhongMaterial.h">
       <Filter>Raytracing\Material\BlinnPhongMaterial</Filter>
     </ClInclude>
+    <ClInclude Include="ReflectingMaterial.h" />
   </ItemGroup>
 </Project>
