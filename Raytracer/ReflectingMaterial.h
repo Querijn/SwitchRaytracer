@@ -28,8 +28,8 @@ class ReflectingMaterial : public BaseMaterial
 {
 public:
 	template<typename... ParentArgs>
-	ReflectingMaterial(ParentArgs... a_Args) : 
-		m_Material(a_Args...)
+	ReflectingMaterial(float a_ReflectionWeight = 0.5f, ParentArgs... a_Args) : 
+		m_Material(a_Args...), m_ReflectionWeight(a_ReflectionWeight)
 	{
 
 	}
@@ -52,12 +52,13 @@ public:
 		glm::vec3 t_MaterialColour = m_Material.GetColour(a_Ray, a_Scene, a_Primitive, a_Distance, a_Depth);
 		glm::vec3 t_ReflectColour;
 		if (a_Scene.Trace(t_Reflect, t_ReflectColour, a_Depth + 1))
-			return (t_ReflectColour + t_MaterialColour) * 0.5f;
+			return (t_ReflectColour * m_ReflectionWeight + t_MaterialColour * (1.0f - m_ReflectionWeight));
 
 		return t_MaterialColour;
 	}
 
 private:
 	ParentMaterial m_Material;
+	float m_ReflectionWeight;
 };
 
