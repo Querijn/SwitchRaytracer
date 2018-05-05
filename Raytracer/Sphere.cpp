@@ -34,3 +34,9 @@ float Sphere::Intersects(const Ray & a_Ray) const
 
 	return t_Dist;
 }
+
+glm::vec3 Sphere::GetNormal(const Ray & a_Ray, float a_Distance) const
+{
+	glm::vec3 t_PointOnSphere = a_Ray.Origin + a_Ray.Direction * a_Distance;
+	return glm::normalize(t_PointOnSphere - m_Position);
+}

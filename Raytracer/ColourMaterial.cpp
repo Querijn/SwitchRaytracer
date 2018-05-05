@@ -9,7 +9,7 @@ ColourMaterial::~ColourMaterial()
 {
 }
 
-glm::vec3 ColourMaterial::GetColour(const Ray& a_Colour, float a_Distance) const
+glm::vec3 ColourMaterial::GetColour(const Ray& a_Colour, const Primitive* a_Primitive, float a_Distance) const
 {
 	return m_Colour;
 }

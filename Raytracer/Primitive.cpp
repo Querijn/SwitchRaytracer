@@ -10,3 +10,8 @@ const BaseMaterial* Primitive::GetMaterial() const
 {
 	return m_Material;
 }
+
+glm::vec3 Primitive::GetPosition() const
+{
+	return m_Position;
+}

@@ -160,6 +160,7 @@
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BaseMaterial.cpp" />
+    <ClCompile Include="BlinnPhongMaterial.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Font.h" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="BaseMaterial.h" />
+    <ClInclude Include="BlinnPhongMaterial.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
