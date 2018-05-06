@@ -7,23 +7,7 @@
 #include "Primitive.h"
 #include "Scene.h"
 
-template
-<
-	typename ParentMaterial, 
-	typename = std::enable_if
-	<
-		std::is_same
-		<
-			ParentMaterial, 
-			BaseMaterial
-		>::value == false && 
-		std::is_base_of
-		<
-		ParentMaterial,
-		BaseMaterial
-		>::value
-	>
->
+template<typename ParentMaterial, typename = std::enable_if<std::is_same<ParentMaterial, BaseMaterial>::value == false && std::is_base_of<ParentMaterial, BaseMaterial>::value>>
 class ReflectingMaterial : public BaseMaterial
 {
 public:
