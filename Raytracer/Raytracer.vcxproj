@@ -169,6 +169,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="SwitchFrameBuffer.cpp" />
     <ClCompile Include="WinFrameBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +186,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Surface.h" />
+    <ClInclude Include="SwitchFrameBuffer.h" />
     <ClInclude Include="WinFrameBuffer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

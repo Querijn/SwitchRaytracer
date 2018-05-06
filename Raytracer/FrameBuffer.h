@@ -10,5 +10,6 @@ public:
 
 	virtual void OutputToScreen() = 0;
 	virtual bool ShouldShutdown() const = 0;
+	virtual double GetDeltaTime() const = 0;
 };
 

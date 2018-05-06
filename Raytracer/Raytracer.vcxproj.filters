@@ -42,6 +42,9 @@
     <ClCompile Include="AreaLight.cpp">
       <Filter>Raytracing\Light\Area</Filter>
     </ClCompile>
+    <ClCompile Include="SwitchFrameBuffer.cpp">
+      <Filter>FrameBuffer\SwitchFrameBuffer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Surface">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="AreaLight.h">
       <Filter>Raytracing\Light\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchFrameBuffer.h">
+      <Filter>FrameBuffer\SwitchFrameBuffer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

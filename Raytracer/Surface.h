@@ -4,8 +4,8 @@
 #include <array>
 #include <cstdint>
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 720
+#define SCREEN_HEIGHT 768
 #define BYTES_PER_PIXEL 3
 
 using SurfaceData = std::array<uint8_t, SCREEN_HEIGHT * SCREEN_WIDTH * BYTES_PER_PIXEL>;

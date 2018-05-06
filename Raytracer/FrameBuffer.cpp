@@ -2,5 +2,4 @@
 
 FrameBuffer::FrameBuffer() {}
 
-
 FrameBuffer::~FrameBuffer() {}
