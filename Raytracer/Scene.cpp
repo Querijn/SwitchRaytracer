@@ -41,28 +41,29 @@ bool Scene::Trace(const Ray& a_Ray, glm::vec3& a_Colour, size_t a_Depth) const
 
 void Scene::Render(Surface& a_Surface) const
 {
-	float t_Width = SCREEN_WIDTH;
-	float t_Height = SCREEN_HEIGHT;
+	float t_Width = SCREEN_HEIGHT;
+	float t_Height = SCREEN_WIDTH;
 	float fov = 60;
 	float pi = 3.14159265359f;
 
 	Ray t_Ray;
 	t_Ray.Origin = glm::vec3(0);
 
+	float t_Aspect, t_X, t_Y;
+	glm::vec3 t_Colour;
 	for (size_t y = 0; y < t_Height; y++)
 	{
 		for (size_t x = 0; x < t_Width; x++)
 		{
-			float t_Aspect = (float)t_Width / (float)t_Height;
-			float t_X = (2.0f * ((x + 0.5f) / t_Width) - 1.0f) * tanf(fov / 2.0f *pi / 180.0f) * t_Aspect;
-			float t_Y = (1.0f - 2.0f * ((y + 0.5f) / t_Height)) * tanf(fov / 2.0f * pi / 180.0f);
+			t_Aspect = (float)t_Width / (float)t_Height;
+			t_X = (2.0f * ((x + 0.5f) / t_Width) - 1.0f) * tanf(fov / 2.0f *pi / 180.0f) * t_Aspect;
+			t_Y = (1.0f - 2.0f * ((y + 0.5f) / t_Height)) * tanf(fov / 2.0f * pi / 180.0f);
 			
 			t_Ray.Direction = glm::normalize(glm::vec3(t_X, t_Y, 1));
 
-			glm::vec3 t_Colour;
 			if (!Trace(t_Ray, t_Colour)) continue;
 
-			auto* t_Point = a_Surface.GetPoint(x, y);
+			auto* t_Point = a_Surface.GetPoint(y, x);
 
 			t_Point[0] = (uint8_t)(255.0f * glm::clamp(t_Colour.r, 0.0f, 1.0f));
 			t_Point[1] = (uint8_t)(255.0f * glm::clamp(t_Colour.g, 0.0f, 1.0f));

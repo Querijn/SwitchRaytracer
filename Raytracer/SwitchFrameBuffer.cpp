@@ -17,9 +17,7 @@ extern "C"
 #include "hwinit/sdmmc_driver.h"
 #include "orig/fuse.h"
 #include "orig/se.h"
-#include "orig/key_derivation.h"
 #include "orig/exocfg.h"
-#include "orig/smiley.h"
 #include "lib/heap.h"
 #include "lib/crc32.h"
 #include "lib/qrcodegen.h"
@@ -28,7 +26,7 @@ extern "C"
 
 const float t_TimerToSeconds = 1.0f / 1000000;
 
-SwitchSurface::SwitchSurface()
+SwitchFrameBuffer::SwitchFrameBuffer()
 {
 	config_hw();
 	display_enable_backlight(false);
@@ -48,7 +46,7 @@ SwitchSurface::SwitchSurface()
 	m_LastTimer = TMR(0x10);
 }
 
-SwitchSurface::~SwitchSurface()
+SwitchFrameBuffer::~SwitchFrameBuffer()
 {
 	const uint8_t MAX77620_I2C_PERIPH = I2C_5;
 	const uint8_t MAX77620_I2C_ADDR = 0x3C;
@@ -64,7 +62,7 @@ SwitchSurface::~SwitchSurface()
 	i2c_send_byte(MAX77620_I2C_PERIPH, MAX77620_I2C_ADDR, MAX77620_REG_ONOFFCNFG1, regVal);
 }
 
-void SwitchSurface::OutputToScreen()
+void SwitchFrameBuffer::OutputToScreen()
 {
 	u32 t_CurrentTimer = TMR(0x10);
 	u32 t_DeltaTime = t_CurrentTimer - m_LastTimer;
@@ -73,12 +71,12 @@ void SwitchSurface::OutputToScreen()
 	m_LastTimer = t_CurrentTimer;
 }
 
-bool SwitchSurface::ShouldShutdown() const
+bool SwitchFrameBuffer::ShouldShutdown() const
 {
 	return (btn_read() == BTN_POWER);
 }
 
-double SwitchSurface::GetDeltaTime() const
+double SwitchFrameBuffer::GetDeltaTime() const
 {
 	return m_DeltaTime;
 }

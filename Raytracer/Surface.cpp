@@ -1,7 +1,4 @@
 #include "Surface.h"
-#define SDL_MAIN_HANDLED
-#include <SDL.h>
-
 
 Surface::Surface()
 {

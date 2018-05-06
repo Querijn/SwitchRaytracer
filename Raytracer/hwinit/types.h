@@ -17,7 +17,9 @@
 #ifndef _TYPES_H_
 #define _TYPES_H_
 
+#ifndef NULL
 #define NULL ((void *)0)
+#endif
 
 #define ALIGN(x, a) (((x) + (a) - 1) & ~((a) - 1))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))

@@ -581,18 +581,18 @@ static const size_t g_CharacterHeight = 12;
 static const size_t g_CharacterCount = 93;
 static const size_t g_CharactersPerLine = 20;
 
-static const uint8_t g_Characters[] =
-{
-	' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3',
-	'4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 
-	'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[',
-	'\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
-	'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 
-};
-
 // Get the offset in the array by character
 static constexpr uint8_t GetOffset(const char a_Character)
 {
+	uint8_t g_Characters[] =
+	{
+		' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3',
+		'4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
+		'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[',
+		'\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+		'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~',
+	};
+
 	for (int i = 0; i < g_CharacterCount; i++)
 		if (a_Character == g_Characters[i])
 			return i;
@@ -607,7 +607,6 @@ void Font::Draw(const char * a_Text, Surface & a_Surface, uint32_t a_X, uint32_t
 	{
 		auto& t_Character = a_Text[i];
 		auto t_CharacterOffset = GetOffset(t_Character);
-		if (g_Characters[t_CharacterOffset] != t_Character) __debugbreak();
 
 		auto t_CharacterOffsetX = (t_CharacterOffset % g_CharactersPerLine);
 		auto t_CharacterOffsetY = (t_CharacterOffset / g_CharactersPerLine);

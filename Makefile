@@ -6,11 +6,12 @@ endif
 
 include $(DEVKITARM)/base_tools
 
-name := biskeydump
+name := SwitchTracer
 
-dir_source := src
-dir_build := build
-dir_out := out
+dir_source := Raytracer
+dir_build := Debug
+dir_out := Debug
+dir_external := ./External
 
 ARCH := -march=armv4t -mtune=arm7tdmi -mthumb -mthumb-interwork
 
@@ -21,12 +22,14 @@ CFLAGS = \
 	$(ARCH) \
 	-g \
 	-Os \
+	-fextended-identifiers \
 	-fomit-frame-pointer \
 	-ffunction-sections \
 	-fdata-sections \
 	-fno-strict-aliasing \
 	-fstrict-volatile-bitfields \
 	-std=gnu11 \
+	-IExternal \
 	-I$(dir_source) \
 	-DNDEBUG \
 	-Wall 
@@ -35,7 +38,8 @@ LDFLAGS = -specs=linker.specs -g $(ARCH)
 
 objects =	$(patsubst $(dir_source)/%.s, $(dir_build)/%.o, \
 			$(patsubst $(dir_source)/%.c, $(dir_build)/%.o, \
-			$(call rwildcard, $(dir_source), *.s *.c)))
+			$(patsubst $(dir_source)/%.cpp, $(dir_build)/%.o, \
+			$(call rwildcard, $(dir_source), *.s *.c *.cpp))))
 
 define bin2o
 	bin2s $< | $(AS) -o $(@)
@@ -54,14 +58,18 @@ $(dir_out)/$(name).bin: $(dir_build)/$(name).elf
 	$(OBJCOPY) -S -O binary $< $@
 
 $(dir_build)/$(name).elf: $(objects)
-	$(LINK.o) $(OUTPUT_OPTION) $^
+	$(LINK.cpp) $(OUTPUT_OPTION) $^
 
 $(dir_build)/%.bin.o: $(dir_build)/%.bin
 	@$(bin2o)
-
+	
 $(dir_build)/%.o: $(dir_source)/%.c
 	@mkdir -p "$(@D)"
-	$(COMPILE.c) $(OUTPUT_OPTION) $<
+	$(COMPILE.c) $ $(OUTPUT_OPTION) $<
+
+$(dir_build)/%.o: $(dir_source)/%.cpp
+	@mkdir -p "$(@D)"
+	$(COMPILE.cpp) $ $(OUTPUT_OPTION) -IExternal -IRaytracer $<
 
 $(dir_build)/%.o: $(dir_source)/%.s
 	@mkdir -p "$(@D)"

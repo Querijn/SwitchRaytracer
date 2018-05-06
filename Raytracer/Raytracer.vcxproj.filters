@@ -35,7 +35,6 @@
     <ClCompile Include="BlinnPhongMaterial.cpp">
       <Filter>Raytracing\Material\BlinnPhongMaterial</Filter>
     </ClCompile>
-    <ClCompile Include="ReflectingMaterial.cpp" />
     <ClCompile Include="Light.cpp">
       <Filter>Raytracing\Light</Filter>
     </ClCompile>
@@ -44,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="SwitchFrameBuffer.cpp">
       <Filter>FrameBuffer\SwitchFrameBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectingMaterial.cpp">
+      <Filter>Raytracing\Material\ReflectingMaterial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +132,6 @@
     <ClInclude Include="BlinnPhongMaterial.h">
       <Filter>Raytracing\Material\BlinnPhongMaterial</Filter>
     </ClInclude>
-    <ClInclude Include="ReflectingMaterial.h" />
     <ClInclude Include="Light.h">
       <Filter>Raytracing\Light</Filter>
     </ClInclude>
@@ -139,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="SwitchFrameBuffer.h">
       <Filter>FrameBuffer\SwitchFrameBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectingMaterial.h">
+      <Filter>Raytracing\Material\ReflectingMaterial</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

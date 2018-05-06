@@ -12,8 +12,8 @@ class ReflectingMaterial : public BaseMaterial
 {
 public:
 	template<typename... ParentArgs>
-	ReflectingMaterial(float a_ReflectionWeight = 0.5f, ParentArgs... a_Args) : 
-		m_Material(a_Args...), m_ReflectionWeight(a_ReflectionWeight)
+	ReflectingMaterial(float a_ReflectionWeight = 0.5f, float a_MaxDepth = 2, ParentArgs... a_Args) : 
+		m_Material(a_Args...), m_ReflectionWeight(a_ReflectionWeight), m_MaxDepth(a_MaxDepth)
 	{
 
 	}
@@ -25,7 +25,7 @@ public:
 	
 	glm::vec3 GetColour(const Ray& a_Ray, const Scene& a_Scene, const Primitive* a_Primitive, float a_Distance, size_t a_Depth) const
 	{
-		if (a_Depth >= 2) return glm::vec3(0);
+		if (a_Depth >= m_MaxDepth) return glm::vec3(0);
 
 		glm::vec3 t_Normal = a_Primitive->GetNormal(a_Ray, a_Distance);
 
@@ -44,5 +44,6 @@ public:
 private:
 	ParentMaterial m_Material;
 	float m_ReflectionWeight;
+	float m_MaxDepth;
 };
 
