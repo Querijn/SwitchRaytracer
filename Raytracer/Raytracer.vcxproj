@@ -155,9 +155,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AreaLight.cpp" />
     <ClCompile Include="ColourMaterial.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BaseMaterial.cpp" />
     <ClCompile Include="BlinnPhongMaterial.cpp" />
@@ -170,11 +172,13 @@
     <ClCompile Include="WinFrameBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AreaLight.h" />
     <ClInclude Include="ColourMaterial.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="BaseMaterial.h" />
     <ClInclude Include="BlinnPhongMaterial.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="ReflectingMaterial.h" />

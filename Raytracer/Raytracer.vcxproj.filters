@@ -36,6 +36,12 @@
       <Filter>Raytracing\Material\BlinnPhongMaterial</Filter>
     </ClCompile>
     <ClCompile Include="ReflectingMaterial.cpp" />
+    <ClCompile Include="Light.cpp">
+      <Filter>Raytracing\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="AreaLight.cpp">
+      <Filter>Raytracing\Light\Area</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Surface">
@@ -80,6 +86,12 @@
     <Filter Include="Raytracing\Material\ReflectingMaterial">
       <UniqueIdentifier>{8fcbdcc1-26c2-47c0-b6ba-3a3fbb9fc6eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Raytracing\Light">
+      <UniqueIdentifier>{8438a425-b1dd-4f4f-b0b7-a89bbdbaba3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing\Light\Area">
+      <UniqueIdentifier>{3ee21de5-266a-49db-ab18-838a34574ebe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Surface.h">
@@ -116,5 +128,11 @@
       <Filter>Raytracing\Material\BlinnPhongMaterial</Filter>
     </ClInclude>
     <ClInclude Include="ReflectingMaterial.h" />
+    <ClInclude Include="Light.h">
+      <Filter>Raytracing\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="AreaLight.h">
+      <Filter>Raytracing\Light\Area</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

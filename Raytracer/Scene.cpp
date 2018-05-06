@@ -9,7 +9,13 @@ Scene::Scene()
 
 Scene::~Scene()
 {
+	for (auto* t_Primitive : m_Primitives)
+		delete t_Primitive;
+	m_Primitives.clear();
 
+	for (auto* t_Light : m_Lights)
+		delete t_Light;
+	m_Lights.clear();
 }
 
 bool Scene::Trace(const Ray& a_Ray, glm::vec3& a_Colour, size_t a_Depth) const
@@ -68,4 +74,9 @@ void Scene::Render(Surface& a_Surface) const
 std::vector<Primitive*> Scene::GetPrimitives() const
 {
 	return m_Primitives;
+}
+
+std::vector<Light*> Scene::GetLights() const
+{
+	return m_Lights;
 }
