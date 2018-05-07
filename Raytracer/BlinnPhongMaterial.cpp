@@ -32,8 +32,10 @@ glm::vec3 BlinnPhongMaterial::GetColour(const Ray& a_Ray, const Scene& a_Scene, 
 		glm::vec3 t_LightDir = glm::normalize(t_Light.GetPosition() - t_Position);
 		glm::vec3 t_LightBounce = glm::reflect(-t_LightDir, t_Normal);
 		glm::vec3 t_HalfWay = glm::normalize(t_LightDir + t_RayDir);
+
 		t_Specular += pow(std::max(dot(t_RayDir, t_LightBounce), 0.0f), m_SpecularHardness) * m_SpecularStrength;
 		t_DiffuseS += std::max(dot(t_LightDir, t_Normal), 0.0f);
+
 	}
 	
 	return m_Colour * glm::vec3(0.05f + t_DiffuseS) + t_Specular;

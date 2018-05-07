@@ -144,5 +144,8 @@
     <ClInclude Include="ReflectingMaterial.h">
       <Filter>Raytracing\Material\ReflectingMaterial</Filter>
     </ClInclude>
+    <ClInclude Include="ShadedMaterial.h">
+      <Filter>Raytracing\Material</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -184,6 +184,7 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="ReflectingMaterial.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ShadedMaterial.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SwitchFrameBuffer.h" />
